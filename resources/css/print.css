@@ -35,15 +35,30 @@
   div.companyName {
     text-align: center;
   }
-
-  nav ul li {
-    list-style-type: disc;
-    padding: 10px;
+  nav.navBar {
+    position: relative;
+    left: 0;
+    margin-left: -200px;
+    margin-top: 50px;
+    break-after: always;
+    display: block;
   }
-  nav ul {
-    padding: 10px;
+  nav.navBar::after {
+    display: block;
+    content: " ";
+    break-after: always;
   }
-  nav ul > li {
-    float: none;
+  .printPageBreak {
+    display: block;
+    break-after: always;
+  }
+  ul.dropDown {
+    display: none;
+  }
+  nav > ul > li {
+    display: block;
+  }
+  h3.linie {
+    display: none;
   }
 }

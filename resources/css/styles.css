@@ -7,10 +7,25 @@
   --red: #ff0000;
   --pink: #ff00ff;
   --cyan: #05f8ff;
+  --gray: #5b5c59;
 }
 #watermark {
   display: none;
 }
+
+.darkTheme > .header {
+  background-color: var(--black) !important;
+}
+.darkTheme > .main {
+  background-color: var(--gray) !important;
+}
+.darkTheme {
+  background-color: var(--gray) !important;
+}
+.darkTheme > .footer {
+  background-color: var(--black) !important;
+}
+
 .error_page {
   display: block;
   width: 100vw;
@@ -29,7 +44,7 @@
 .header {
   width: auto;
   padding-left: 20px;
-  background-color: #14213d;
+  background-color: var(--blue);
   font-family: "ZenAntiqueSoft-Regular", "Helvetica Neue", Helvetica, Arial,
     sans-serif;
 }
@@ -72,7 +87,7 @@ td {
 }
 .linie::after {
   content: "\273A";
-  color: var(--cyan);
+  color: var(--blue);
   float: right;
   position: relative;
   margin-top: -14px;
@@ -80,7 +95,7 @@ td {
 }
 .linie::before {
   content: "\273A";
-  color: var(--cyan);
+  color: var(--blue);
   float: left;
   top: 0;
   position: relative;
@@ -91,7 +106,7 @@ h3.linie {
   margin-left: 50px;
   margin-right: 50px;
   height: 2px;
-  background-color: var(--cyan);
+  background-color: var(--blue);
 }
 .bordertopC2 > td:hover {
   outline: rgba(255, 0, 0, 0.7) solid 5px;
