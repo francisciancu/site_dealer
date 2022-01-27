@@ -1,0 +1,49 @@
+@media print {
+  #watermark {
+    display: block;
+    position: fixed;
+    bottom: 0;
+    color: rgba(0, 0, 0, 0.4);
+    right: 0;
+    width: 4cm;
+    height: 1cm;
+    border: 3px solid grey;
+    border-radius: 5px;
+    text-align: center;
+    font-weight: bold;
+    opacity: 0.4;
+  }
+  #banner {
+    position: absolute;
+    bottom: 0;
+    left: 25%;
+    width: 70vw;
+    border: 4px inset black;
+    background-color: #fca311;
+    color: #14213d;
+    text-align: center;
+  }
+  img,
+  video,
+  iframe {
+    display: none;
+  }
+  div.borderBracket,
+  div.triangleUp {
+    display: none;
+  }
+  div.companyName {
+    text-align: center;
+  }
+
+  nav ul li {
+    list-style-type: disc;
+    padding: 10px;
+  }
+  nav ul {
+    padding: 10px;
+  }
+  nav ul > li {
+    float: none;
+  }
+}

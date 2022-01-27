@@ -1,0 +1,29 @@
+Ex 1 - Linia 1
+
+Ex 2 - linia 5
+
+Ex 3 - Linia 15
+
+Ex 4 - Linia 18
+
+Ex 5 - Linia 25 - 60 - 295
+
+Ex 6  - Linia 27
+
+Ex 7 - Linia 62
+
+Ex 8 - Linia 70
+
+Ex 10 - Linia 95 -  174 - 205
+
+Ex 11   link extern - Linia 208
+        link inapoio la inceput in footer - Linia 296
+        2 linkuri iframe cu video yt cu click - Linia 167 / 229
+
+Ex 12 - Linia 259
+
+Ex 13 - Linia 302
+
+Ex 14 - Linia 309
+
+Ex 15 - validare pe https://validator.w3.org/#validate_by_upload
