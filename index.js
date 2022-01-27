@@ -42,6 +42,7 @@ app.get("/*", function (req, res) {
   });
 });
 
-app.listen(8080); //asta ultima linie
-
-console.log("Serverul a pornit");
+var port = process.env.PORT || 8080;
+var server = app.listen(port, function () {
+  console.log("app running on port 8080");
+});
