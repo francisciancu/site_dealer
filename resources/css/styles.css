@@ -25,7 +25,18 @@
 .darkTheme > .footer {
   background-color: var(--black) !important;
 }
-
+.iframeContainer {
+  z-index: 100;
+}
+.closeIframeButton {
+  background: #ff0000;
+  border-radius: 1000px;
+  padding: 2px 4px;
+  color: #ffffff;
+  display: inline-block;
+  font: normal bold 15px/1 "Open Sans", sans-serif;
+  text-align: center;
+}
 .error_page {
   display: block;
   width: 100vw;
@@ -42,7 +53,8 @@
 }
 
 .header {
-  width: auto;
+  display: flex;
+  flex-direction: column;
   padding-left: 20px;
   background-color: var(--blue);
   font-family: "ZenAntiqueSoft-Regular", "Helvetica Neue", Helvetica, Arial,
@@ -218,11 +230,21 @@ body {
     sans-serif;
 }
 
+#smallCarLogo {
+  margin-right: 8px;
+}
+
+.hidden {
+  display: none;
+}
 .companyName {
+  width: 100%;
   text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
   color: var(--white);
-  float: left;
-  padding-left: 10px;
+  margin-top: 8px;
 }
 .navBar {
   margin-top: 20px;
@@ -233,10 +255,11 @@ nav ul {
   margin: 0;
   padding: 0;
   list-style: none;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
 }
 nav li {
-  display: inline-block;
-  padding: 5px 25px;
   position: relative;
   width: 90px;
   height: 30px;
@@ -247,9 +270,6 @@ nav a {
   text-decoration: none;
   text-transform: uppercase;
   font-size: 16px;
-  height: 40px;
-  text-align: center;
-  line-height: 22px;
 }
 
 ul.dropDown {
@@ -456,10 +476,11 @@ section#masini article {
   width: 450px;
   height: 300px;
   margin-left: 20px;
-  position: absolute;
   border: 3px solid var(--blue);
-  transform: translateX(100%);
+  transform: translateX(170%);
   box-shadow: 0 0 20px var(--blue);
+  position: fixed;
+  top: 120px;
 }
 
 .iframeAnchor {

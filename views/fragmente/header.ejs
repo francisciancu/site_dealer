@@ -1,4 +1,12 @@
 <script>
+  function applyTheme(theme) {
+    if (theme == "light") {
+      document.body.className = "";
+    } else {
+      document.body.className = "darkTheme";
+    }
+  }
+
   function changeIcon(currTheme) {
     if (currTheme == "light") {
       localStorage.setItem("theme", "dark");
@@ -9,6 +17,7 @@
     }
     resetButton();
   }
+
   function resetButton() {
     var btn = document.getElementById("changeThemeButton");
     if (btn) {
@@ -16,34 +25,38 @@
     }
     generateButton();
   }
+
   function getCurrTheme() {
     var theme = localStorage.getItem("theme");
     return theme ? theme : "light";
   }
+  
   function generateButton() {
     var btn = document.createElement("button");
-    btn.className = getCurrTheme();
+    var theme = getCurrTheme();
+    btn.className = theme;
     btn.id = "changeThemeButton";
     btn.onclick = function () {
       changeIcon(getCurrTheme());
     };
-    document.getElementById("printPageBreak").append(btn);
+    document.getElementById("companyName").append(btn);
+    applyTheme(theme);
   }
 </script>
 
 <header class="header">
-  <div class="companyName">
-    <label id="smallcarlogo">
-      <img src="../../resources\images\favicon-32x32.png" alt="logo" />
-    </label>
-    <h1 style="display: inline">Cupacars</h1>
+  <div class="companyName" id="companyName">
+    <div class="wrapper">
+      <label id="smallCarLogo">
+        <img src="../../resources\images\favicon-32x32.png" alt="logo" />
+      </label>
+      <h1 style="display: inline">Cupacars</h1>
+    </div>
   </div>
   <nav id="start" class="navBar">
     <ul>
       <li>
-        <a href="/index" class="fontBigger home"
-          ><img id="home-img" src="home-solid.svg" alt="home-button" /> Acasa</a
-        >
+        <a href="/index" class="fontBigger home"><img id="home-img" src="home-solid.svg" alt="home-button" /> Acasa</a>
       </li>
       <li>
         <a href="#promotii" class="fontBigger">Promotii</a>
@@ -92,9 +105,7 @@
         </ul>
       </li>
       <li>
-        <a href="/paginasuplimentara" class="fontBigger home"
-          >Pagina suplimentara</a
-        >
+        <a href="/paginasuplimentara" class="fontBigger home">Extra</a>
       </li>
     </ul>
   </nav>

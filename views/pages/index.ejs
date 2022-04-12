@@ -1,4 +1,20 @@
 <!DOCTYPE html>
+<script>
+function applyVideoSrc(url) {
+  const iframeContainer = document.getElementById("iframeContainer")
+  iframeContainer.className='iframeContainer';
+  const iframe = document.getElementById("iframe_1")
+  iframe.setAttribute('src',url);
+}
+
+function closeIframe() {
+  const iframeContainer = document.getElementById("iframeContainer")
+  iframeContainer.className='iframeContainer hidden';
+  const iframe = document.getElementById("iframe_1")
+  iframe.setAttribute('src','');
+}
+
+</script>
 <html lang="ro">
   <head>
     <meta name="keywords" content="auto,vehicul,autovehicul,masina,Cupacars" />
@@ -14,7 +30,10 @@
   <!-- aici era headerul -->
   <%- include("../fragmente/header.ejs")%>
   <main class="main">
-
+    <div id="iframeContainer" class="iframeContainer hidden">
+      <iframe id='iframe_1' name="iframe_1" class="iframe1" allowfullscreen></iframe>
+      <button class="closeIframeButton" onclick="closeIframe()">X</button>
+    </div>
     <div class="zone_1">
       <section id="acasa">
         <h2>Welcome To Cupacars</h2>
@@ -113,8 +132,8 @@
             <img
               src="https://cdn.motor1.com/images/mgl/8oLve/s1/1989-nissan-skylline-gt-r-r32-auction.webp"
               alt="r32"
+              id="imageToHide"
             />
-
             <h5>
               Nume : Nissan <abbr title="Gran Turismo Racing">GTR</abbr> R32
             </h5>
@@ -128,21 +147,18 @@
                   </summary>
                   <a
                     class="iframeAnchor"
-                    href="https://www.youtube.com/embed/nUfwkv9nyD0"
-                    target="iframe_1"
+                    onclick="applyVideoSrc('https:\/\/www.youtube.com\/embed\/nUfwkv9nyD0')"
                     >Apasa aici!</a
                   >
                   <a
                     class="iframeAnchor"
-                    href="https://www.youtube.com/embed/pCxP4bINAwA"
-                    target="iframe_1"
+                    onclick="applyVideoSrc('https:\/\/www.youtube.com\/embed\/pCxP4bINAwA')"
                     >Alt video!</a
                   >
                 </details>
               </dd>
             </dl>
             <p>Pret : 68.000 Euro</p>
-            <iframe name="iframe_1" class="iframe1" allowfullscreen></iframe>
           </article>
         </section>
         <section id="jeep">
@@ -249,16 +265,14 @@
         <tbody>
           <tr class="bordertopC2">
             <td>ZIUA</td>
-            <td>ORA DESCHIDERI</td>
-            <td>ORA INCHIDERI</td>
-            <td>ORA DESCHIDERI</td>
-            <td>ORA INCHIDERI</td>
+            <td>Deschis</td>
+            <td>Inchis</td>
+            <td colspan="1" rowspan="8">NON-STOP</td>
           </tr>
           <tr class="bordertopC1">
             <td>LUNI</td>
             <td>09:00</td>
             <td>18:00</td>
-            <td colspan="2" rowspan="7">NON-STOP</td>
           </tr>
           <tr class="bordertopC2">
             <td>MARTI</td>
