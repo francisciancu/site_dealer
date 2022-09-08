@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+    <meta name="keywords" content="auto,vehicul,autovehicul,masina,Cupacars" />
+    <meta name="description" content="Cupacars ofera cele mai bune preturi pentru masina pe care o doresti!" />
+    <title>Masini de vanzare</title>
+    <%- include("../fragmente/head.ejs") %>
+        <!-- aici erau meta si alea -->
+</head>
+
+<%- include("../fragmente/header.ejs")%>
+<main>
+    <section>
+        <h2>Pagină produs</h2>
+        <article id="art-produs">
+            <h3><span class="nume">
+                    <%- locals.prod.nume %>
+                </span></h3>
+            <p>Pret: <span class="pret">
+                    <%- locals.prod.pret %>
+                </span></p>
+            <p>Descriere: <span class="descriere">
+                    <%- locals.prod.descriere %>
+                </span></p>
+            
+            <figure class="imag-produs">
+                <img src="<%- prod.image_path %>" 
+                    alt="[imagine <%- locals.prod.nume %>]" />
+            </figure>
+        </article>
+
+    </section>
+</main>
+<%- include("../fragmente/footer.ejs")%>
+    </body>
+
+</html>

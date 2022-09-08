@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="ro">
+
+<head>
+  <meta name="keywords" content="auto,vehicul,autovehicul,masina,Cupacars" />
+  <meta name="description" content="Cupacars ofera cele mai bune preturi pentru masina pe care o doresti!" />
+  <title>Masini de vanzare</title>
+  <%- include("../fragmente/head.ejs") %>
+    <script type="text/javascript" src=/resources/js/produse.js></script>
+    <!-- aici erau meta si alea -->
+</head>
+
+<!-- aici era headerul -->
+<%- include("../fragmente/header.ejs")%>
+  <main>
+    <div class="filterContainer">
+      <div style="margin-bottom:24px">
+        <label> Nume: <input type="text" id="inp-nume"></label>
+      </div>
+      <!--<label> Maxim calorii: <input type="number" id="inp-calorii" value="10000"></label>-->
+      <div> Categorii:
+        <div style="margin-bottom:24px; padding-top:8px;" class="checkboxContainer">
+          <label class="categoryLabel">Sleepers
+            <input id="i_rad1" name="gr_rad" value="Sleepers" type="checkbox" checked />
+          </label>
+          <label class="categoryLabel">European
+            <input id="i_rad2" name="gr_rad" value="European" type="checkbox" checked />
+          </label>
+          <label class="categoryLabel">Vintage
+            <input id="i_rad3" name="gr_rad" value="Vintage" type="checkbox" checked />
+          </label>
+          <label class="categoryLabel">Exotic
+            <input id="i_rad4" name="gr_rad" value="Exotic" type="checkbox" checked />
+          </label>
+          <label class="categoryLabel">American muscle
+            <input id="i_rad5" name="gr_rad" value="American muscle" type="checkbox" checked />
+          </label>
+        </div>
+      </div>
+
+      <div style="margin-bottom:24px">
+        <label> Pret minim: <input type="range" id="inp-pret" value="10000" min="10000" max="70000"> <span
+            id="infoRange">(10000)</span></label>
+      </div>
+
+      <div style="margin-bottom:24px">
+        <label>Select simplu:
+          <select id="inp-combustibil">
+            <option id="sel-toate" selected value="toate">toate</option>
+            <% for (let opt of locals.optiuni) { %>
+              <option value="<%- opt %>">
+                <%- opt %>
+              </option>
+              <% } %>
+          </select>
+        </label>
+      </div>
+      <p>
+        <button id="filtrare">Filtreaza</button> <button id="resetare">Reseteaza</button><br />
+        <button id="sortCrescNume">Sorteaza crescator dupa nume si pret</button>
+        <button id="sortDescrescNume">Sorteaza descrescator dupa nume si pret</button>
+      </p>
+
+      <p id="p-suma">Apăsați Alt+"c" pentru suma preturilor produselor afișate. </p>
+    </div>
+
+    <h2>Produse</h2>
+    <section id="produse">
+      <div class="grid-produse">
+        <% for( let prod of locals.produse) { %>
+          <article class="produs">
+            <h3 class="nume">Nume: <a href="/produs/<%-prod.id %>" title="<%- prod.nume%>"><span class="val-nume">
+                  <%- prod.nume%>
+                </span></a></h3>
+            <div class="info-prod">
+              <p class="pret">Pret: <span class="val-pret">
+                  €<%- prod.pret%>
+                </span></p>
+              <p class="combustibil">Combustibil: <span class="val-combustibil">
+                  <%- prod.combustibil_folosit%>
+                </span></p>
+              <p class="culoare">Culoare: <span class="val-culoare">
+                  <%- prod.culoare_vopsea%>
+                </span></p>
+            </div>
+            <p class="categorie">Categorii:<span class="val-categorie">
+                <%- prod.categorii.replaceAll('"','').replace('{','').replace('}','')%>
+              </span></p>
+            <figure>
+              <a href="/produs/<%-prod.id %>"><img src="<%- prod.image_path %>" style="width:420px;height:246px;"
+                  alt="[imagine <%- prod.nume %>]" /></a>
+            </figure>
+          </article>
+          <% }%>
+      </div>
+    </section>
+  </main>
+  <!-- aici era footer -->
+  <%- include("../fragmente/footer.ejs")%>
+
+</html>

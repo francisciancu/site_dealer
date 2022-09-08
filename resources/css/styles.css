@@ -36,6 +36,10 @@
   display: inline-block;
   font: normal bold 15px/1 "Open Sans", sans-serif;
   text-align: center;
+  z-index: 9999;
+  left: 450px;
+  position: fixed;
+  top: 150px;
 }
 .error_page {
   display: block;
@@ -49,7 +53,7 @@
 }
 @font-face {
   font-family: "ZenAntiqueSoft-Regular";
-  src: url(fonts/ZenAntiqueSoft-Regular.ttf);
+  src: url(/resources/misc/ZenAntiqueSoft-Regular.ttf);
 }
 
 .header {
@@ -68,18 +72,155 @@ header::after {
 }
 
 .main {
-  margin-left: 5px;
-  background-color: var(--yellow);
   font-family: "ZenAntiqueSoft-Regular", "Helvetica Neue", Helvetica, Arial,
     sans-serif;
   display: grid;
   grid-template-areas:
-    "zone1 zone1 zone1 zone1 zone1 zone1"
-    "zone8 zone8 zone8 zone8 zone8 zone8"
-    "zone3 zone3 zone2 zone2 zone4 zone4"
-    "zone5 zone5 zone6 zone6 zone7 zone7";
+    "zone1 zone1 zone1 zone1"
+    "zone8 zone8 zone8 zone8"
+    "zone3 zone2 zone2 zone4"
+    "zone5 zone6 zone7 zone7";
+  grid-template-columns: repeat(4, 1fr);
   grid-gap: 10px;
   margin-bottom: 10px;
+}
+.nume {
+  text-overflow: ellipsis;
+  width: 420px;
+  padding-left: 16px;
+  overflow: hidden;
+  white-space: nowrap;
+}
+.nume > a > .val-nume {
+  text-overflow: ellipsis;
+}
+.info-prod,
+.categorie {
+  padding-left: 24px;
+}
+
+.galerieContainer {
+  margin-left: 96px;
+  margin-right: 96px;
+  display: grid;
+  font-family: "ZenAntiqueSoft-Regular", "Helvetica Neue", Helvetica, Arial,
+    sans-serif;
+  counter-reset: galerie-counter;
+  background-color: var(--yellow);
+  grid-template-areas:
+    "galerie0 galerie1 galerie2"
+    "galerie3 galerieBlank4 galerie4"
+    "galerie5 galerie6 galerie7"
+    "galerie8 galerieBlank9 galerie9"
+    "galerie10 galerie11 galerie12";
+}
+
+.galerieSelector img {
+  object-fit: cover;
+  width: 100%;
+  max-height: 100%;
+}
+.galerieSelector {
+  transition: all 0.125s;
+  transform-origin: top center;
+}
+.galerieSelector:hover {
+  transform: scale(1.4);
+  opacity: 0.5;
+}
+.galerieSelector:hover > picture > img {
+  border-radius: 15px;
+}
+.grid-produse {
+  column-count: 3;
+  padding-left: 24px;
+  padding-bottom: 24px;
+}
+.produs {
+  border: 1px solid;
+  max-width: 500px;
+  min-height: 481px;
+  margin: 0px 0px 16px 0px;
+  break-inside: avoid;
+}
+.produs > figure {
+  margin: 0;
+  margin-left: 32px;
+}
+@media only screen and (max-width: 720px) {
+  .galerieBlank4,
+  .galerieBlank9 {
+    display: none;
+  }
+  .main {
+    grid-template-areas:
+      "zone1 zone1"
+      "zone8 zone8"
+      "zone3 zone2"
+      "zone4 zone5"
+      "zone6 zone7";
+    grid-template-columns: repeat(2, 1fr);
+  }
+  .galerieContainer {
+    grid-template-areas:
+      "galerie0 galerie1"
+      "galerie2 galerie3"
+      "galerie4 galerie5"
+      "galerie6 galerie7"
+      "galerie8 galerie9"
+      "galerie10 galerie11"
+      "galerie12 galerie12";
+  }
+
+  .grid-produse {
+    column-count: 2;
+  }
+}
+@media only screen and (max-width: 500px) {
+  .grid-produse {
+    column-count: 1;
+  }
+  .galerieBlank4,
+  .galerieBlank9 {
+    display: none;
+  }
+  .main {
+    grid-template-areas:
+      "zone1"
+      "zone8"
+      "zone3"
+      "zone2"
+      "zone4"
+      "zone5"
+      "zone6"
+      "zone7";
+    grid-template-columns: repeat(1, 1fr);
+  }
+  .galerieContainer {
+    grid-template-areas:
+      "galerie0"
+      "galerie1"
+      "galerie2"
+      "galerie3"
+      "galerie4"
+      "galerie5"
+      "galerie6"
+      "galerie7"
+      "galerie8"
+      "galerie9"
+      "galerie10"
+      "galerie11"
+      "galerie12";
+  }
+  .zone_2 {
+    width: fit-content !important;
+  }
+}
+.galerieCaption {
+  counter-increment: galerie-counter;
+}
+.galerieCaption:before {
+  content: counter(galerie-counter, lower-roman) ". ";
 }
 div.paginasuplimentaratext {
   display: flex;
@@ -89,6 +230,9 @@ div.paginasuplimentaratext {
   padding: 20px 20px;
   font-weight: bold;
   text-align: center;
+}
+.tabelprogram {
+  width: 100%;
 }
 
 zone_3 > table,
@@ -165,6 +309,55 @@ caption {
   caption-side: bottom;
   font-weight: bold;
 }
+.galerieSelector {
+  margin: 10px;
+}
+.galerie0 {
+  grid-area: galerie0;
+}
+.galerie1 {
+  grid-area: galerie1;
+}
+.galerie2 {
+  grid-area: galerie2;
+}
+.galerie3 {
+  grid-area: galerie3;
+}
+.galerieBlank4 {
+  grid-area: galerieBlank4;
+}
+.galerieBlank9 {
+  grid-area: galerieBlank9;
+}
+.galerie4 {
+  grid-area: galerie4;
+}
+.galerie5 {
+  grid-area: galerie5;
+}
+.galerie6 {
+  grid-area: galerie6;
+}
+.galerie7 {
+  grid-area: galerie7;
+}
+.galerie8 {
+  grid-area: galerie8;
+}
+.galerie9 {
+  grid-area: galerie9;
+}
+.galerie10 {
+  grid-area: galerie10;
+}
+.galerie11 {
+  grid-area: galerie11;
+}
+.galerie12 {
+  grid-area: galerie12;
+}
+
 .zone_1 {
   grid-area: zone1;
   text-align: center;
@@ -172,45 +365,46 @@ caption {
 }
 .zone_2 {
   grid-area: zone2;
-  border: 3px solid var(--white);
+  border: 5px inset var(--white);
+  width: calc(100% - 6px);
   text-align: center;
-  width: 300px;
   height: fit-content;
+  background-color: var(--platinum);
+  overflow-x: scroll;
+  overflow: visible;
 }
 .zone_3 {
   grid-area: zone3;
-  border: 5px inset var(--white);
+  border: 3px solid var(--white);
+  width: calc(100% - 6px);
   text-align: center;
-  width: fit-content;
-  height: fit-content;
-  background-color: var(--platinum);
 }
 .zone_4 {
   grid-area: zone4;
   border: 3px solid var(--white);
   text-align: center;
-  width: 300px;
+  width: calc(100% - 6px);
   height: fit-content;
 }
 .zone_5 {
   grid-area: zone5;
   border: 3px solid var(--white);
   text-align: center;
-  width: 300px;
+  width: calc(100% - 6px);
   height: fit-content;
 }
 .zone_6 {
   grid-area: zone6;
   border: 3px solid var(--white);
   text-align: center;
-  width: 300px;
+  width: calc(100% - 6px);
   height: fit-content;
 }
 .zone_7 {
   grid-area: zone7;
   border: 3px solid var(--white);
   text-align: center;
-  width: 300px;
+  width: calc(100% - 6px);
   height: fit-content;
 }
 
@@ -314,9 +508,6 @@ ul.dropDown li {
 .FAQ {
   width: 40px !important;
 }
-.dropdownItem {
-  width: 50px;
-}
 
 .dropdownItem:before {
   height: 0px;
@@ -337,7 +528,7 @@ ul.dropDown li {
   background-image: linear-gradient(to right, #14213d, #fca311);
   display: block;
   position: absolute;
-  right: 15px;
+  right: -10px;
   top: 1px;
   height: 0px;
   width: 20px;
@@ -348,8 +539,11 @@ ul.dropDown li {
 
 .dropdownItem:hover:after,
 .dropdownItem:hover:before {
-  height: 39px;
+  height: 20px;
   transform: scaleY(1);
+}
+.dropdownItem {
+  z-index: 9999;
 }
 
 section#acasa img {
@@ -376,8 +570,18 @@ section#promotii article {
   height: 0;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-bottom: 20px solid var(--white);
+  border-bottom: 20px solid var(--gray);
   margin: 10px 20px;
+}
+
+.filterContainer {
+  padding: 24px 24px 0px;
+}
+
+.categoryLabel {
+  border: 1px solid;
+  padding: 4px;
+  margin-right: 8px;
 }
 
 section#masini h3 {
@@ -395,7 +599,7 @@ section#masini h4 {
   text-transform: uppercase;
   text-shadow: 3px 3px var(--black);
 }
-main img {
+article img {
   width: 450px;
   height: 300px;
 }
@@ -447,18 +651,21 @@ section#masini article {
 .borderBracket {
   display: flex;
   justify-content: center;
-  border-left: 3px solid var(--platinum);
-  border-right: 3px solid var(--platinum);
+  border-left: 3px solid var(--gray);
+  border-right: 3px solid var(--gray);
   float: right;
   margin: 10px 10px;
   width: auto;
   border-radius: 60%;
   opacity: 30%;
+  position: fixed;
+  right: 30px;
+  bottom: 20px;
 }
 
 .borderBracket:hover {
-  border-left: 3px solid var(--yellow);
-  border-right: 3px solid var(--yellow);
+  border-left: 3px solid var(--black);
+  border-right: 3px solid var(--black);
   transition: all 3s;
   opacity: 100%;
 }
@@ -467,7 +674,7 @@ section#masini article {
   position: relative;
   border-left: 10px solid transparent;
   border-right: 10px solid transparent;
-  border-bottom: 20px solid var(--yellow);
+  border-bottom: 20px solid var(--black);
   transition: all 3s;
   transform: translateY(-10px);
 }
@@ -477,7 +684,6 @@ section#masini article {
   height: 300px;
   margin-left: 20px;
   border: 3px solid var(--blue);
-  transform: translateX(170%);
   box-shadow: 0 0 20px var(--blue);
   position: fixed;
   top: 120px;

@@ -1,0 +1,22 @@
+<% if (galerie) { %>
+    <% for (var i=0; i < galerie.imagini.length; i++) { %>
+        <% if (i == 4 ) { %>
+        <div class='galerieBlank4' >
+        </div>
+        <% } %>
+        <% if ( i == 9) { %>
+            <div class='galerieBlank9' >
+            </div>
+        <% } %>
+        <figure class=<%='galerieSelector galerie' + i %> >
+            <picture>
+                <source srcset=<%=galerie.cale_galerie+galerie.imagini[i].cale_fisier.replace('.jpg','mediu.jpg') %> media="(max-width: 720px)" >
+                <source srcset=<%=galerie.cale_galerie+galerie.imagini[i].cale_fisier.replace('.jpg','mic.jpg') %> media="(max-width: 365px)" >
+                <img src=<%=galerie.cale_galerie+galerie.imagini[i].cale_fisier %> alt=<%= galerie.imagini[i].text %> >
+            </picture>  
+                <figcaption class="galerieCaption">
+                    <%= galerie.imagini[i].titlu %>
+                </figcaption>
+        </figure>
+    <% } %>
+<% } %>
